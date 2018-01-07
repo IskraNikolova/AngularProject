@@ -9,6 +9,12 @@ const baseUrl = "http://localhost:5000/"
 export class HttpService{
     constructor(private http: Http){}
 
+    get(url){
+        return this.http
+        .get(`${baseUrl}${url}`)
+        .map(res => res.json());
+    }
+
     post(url, data){
         const headers = new Headers({
             "Content-Type": "application/json"

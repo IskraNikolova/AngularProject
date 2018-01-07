@@ -10,6 +10,8 @@ import { store, IAppState } from './store';
 //Modules
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
+import { ProductsModule } from './products/products.module';
+import { StatsModule } from './stats/stats.module';
 import { ProductRoutesModule } from './routes.module';
 
 //Components
@@ -30,7 +32,9 @@ import {config}  from './core/config';
     NgReduxModule,
     ProductRoutesModule,  
     CoreModule,  
-    UsersModule
+    UsersModule,
+    ProductsModule,
+    StatsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,6 +14,11 @@ function validateProductForm (payload) {
     isFormValid = false
     errors.name = 'Name must be more than 3 symbols.'
   }
+  
+   if (!payload || typeof payload.description !== 'string' || payload.description.length < 10) {
+    isFormValid = false
+    errors.name = 'Description must be more than 10 symbols.'
+  }
 
   if (!payload || !payload.price || payload.price < 0) {
     isFormValid = false
@@ -83,6 +88,7 @@ router.get('/details/:id', authCheck, (req, res) => {
   let response = {
     id,
     name: product.name,
+	description: product.description,
     price: product.price,
     image: product.image,
     createdOn: product.createdOn,

@@ -15,7 +15,6 @@ export function userRegistration(state, action){
 
 export function userLogin(state, action){
     const result = action.result;
-
     return Object.assign({}, state, {
         userAuthenticated: result.success,
         token: result.token,
