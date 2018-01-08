@@ -4,9 +4,11 @@ import { IAppState } from './app.state';
 import { usersReducer } from './users/users.reducer';
 import { coreReducer } from './core/core.reducer';
 import { statsReducer } from './stats/stats.reducer';
+import { productsReducer } from './products/products.reducer';
 
 export const reducer = combineReducers<IAppState>({
     core: coreReducer,
     users: usersReducer,
-    stats: statsReducer
+    stats: statsReducer,
+    products: productsReducer
 });

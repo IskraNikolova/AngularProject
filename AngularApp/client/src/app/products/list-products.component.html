@@ -1,0 +1,20 @@
+<h1>List Products</h1>
+<div class="container">
+    <div>
+        <input type="text" [(ngModel)]="searchText" name="searchText" />
+        <button (click)="search()">Search</button>
+    </div>
+    <div *ngIf="products.length === 0">
+        No more products available!
+    </div>
+    <div *ngFor="let product of products">
+        <p>{{product.name}}</p>
+        <img [src]="product.image" alt="no image" width="300px"/>
+        <p><a routerLink="/products/details/{{product.id}}">See More</a></p>
+        <hr>
+    </div>
+    <div>
+        <button [disabled]="page === 1" (click)="prevPage()">Prev</button>
+        <button [disabled]="products.length === 0" (click)="nextPage()">Next</button>
+    </div>
+</div>

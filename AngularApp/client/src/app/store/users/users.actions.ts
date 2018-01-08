@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+
 import { NgRedux } from 'ng2-redux';
 import { IAppState } from './../app.state';
+
 import { UsersService } from './../../users/users.service';
 
 export const USER_REGISTERED = "users/REGISTER";

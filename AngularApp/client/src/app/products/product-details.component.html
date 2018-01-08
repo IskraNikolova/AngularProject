@@ -1,0 +1,4 @@
+<h1>Details</h1>
+<h2>{{product.name}} - {{product.likes}} Likes</h2>
+<img *ngIf="product.image" [src]="product.image" alt="no image" width="300px"/>
+<button (click)="like()">Like this product!</button>
