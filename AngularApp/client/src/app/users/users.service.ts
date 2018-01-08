@@ -6,11 +6,13 @@ import { HttpService } from './../core/http.service';
 export class UsersService{
     constructor(private httpService: HttpService){ }
 
-    register(user){
-        return this.httpService.post('auth/signup', user)
+    register (user) {
+        return this.httpService
+           .post('auth/signup', user);
     }
 
-    login(user){
-        return this.httpService.post('auth/login', user)
+    login (user) {
+        return this.httpService
+            .post('auth/login', user);
     }
 }

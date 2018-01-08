@@ -1,0 +1,15 @@
+<h1>Profile Page</h1>
+<div *ngFor="let product of products">
+   <p><b>Product Name: </b> {{product.name}}</p>
+   <img [src]="product.image" alt="no image" width="300px"/>
+   <p><b>Product Description: </b>{{product.description}}</p>
+   <p><b>Product Price: </b>{{product.price}}</p>
+   <p><b>Product Likes: </b>{{product.likes.length}}</p>
+   <h2>Reviews</h2>
+   <div *ngFor="let review of product.reviews">
+       {{review.comment}} - {{review.rating}}
+       <p>Created On {{review.createdOn.slice(0, 10)}} by {{review.user}}</p>
+   </div>
+   <button (click)="delete(product.id)" class="btn btn-danger">Delete</button>
+   <hr>
+</div>

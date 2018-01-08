@@ -26,11 +26,12 @@ export class AddProductComponent{
     addProduct () {
         this.productsAction
             .addProduct(this.product);
-        this.ngRedux
+        let subscription = this.ngRedux
             .select(state => state.products)
-            .subscribe(products => {
-                const productId = products.productAddedId;
-                if(products.productAdded){
+            .subscribe(products => {               
+               if(products.productAdded){
+                    const productId = products.productAddedId;    
+                    subscription.unsubscribe();
                     this.router.navigateByUrl(`/products/details/${productId}`);
                 }
             });

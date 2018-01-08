@@ -15,31 +15,31 @@ export class UsersActions{
                 private redux: NgRedux<IAppState>
     ){ }
 
-    register (user){
+    register (user) {
         this.usersService
         .register(user)
         .subscribe(result => {
             this.redux.dispatch({
                 type: USER_REGISTERED,
                 result
-            })
-        })
+            });
+        });
     }
 
-    login(user){
+    login (user) {
         this.usersService
         .login(user)
         .subscribe(result => {
             this.redux.dispatch({
                 type: USER_LOGGED_IN,
                 result
-            })
-        })
+            });
+        });
     }
-
-    logout(){
+  
+    logout () {
         this.redux.dispatch({
             type: USER_LOGOUT
-        })
+        });
     }
 }
