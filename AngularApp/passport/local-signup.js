@@ -10,7 +10,8 @@ module.exports = new PassportLocalStrategy({
   const user = {
     email: email.trim(),
     password: password.trim(),
-    name: req.body.name.trim()
+    name: req.body.name.trim(),
+	isAdmin: req.body.isAdmin
   }
 
   const existingUser = usersData.findByEmail(email)

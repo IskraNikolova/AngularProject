@@ -1,6 +1,7 @@
 export interface IUsersState{
     userRegistered: boolean,
     userAuthenticated: boolean,
+    isAdmin: boolean,
     token: string,
     username: string,
 }
@@ -8,6 +9,7 @@ export interface IUsersState{
 export const initialState: IUsersState = {
     userRegistered: false,
     userAuthenticated: false,
+    isAdmin: false,
     token: null,
     username: null,
 }

@@ -21,7 +21,8 @@ export class UsersActions{
         .subscribe(result => {
             this.redux.dispatch({
                 type: USER_REGISTERED,
-                result
+                result,
+                user
             });
         });
     }
@@ -32,7 +33,8 @@ export class UsersActions{
         .subscribe(result => {
             this.redux.dispatch({
                 type: USER_LOGGED_IN,
-                result
+                result,
+                user
             });
         });
     }

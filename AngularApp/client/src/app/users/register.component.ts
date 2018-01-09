@@ -6,6 +6,8 @@ import { IAppState } from '../store';
 
 import { RegisterUser } from './register-user.model';
 
+import { AuthService } from './../core/auth.service';
+
 import { UsersActions } from '../store/users/users.actions';
 
 @Component({
@@ -17,16 +19,26 @@ export class RegisterComponent{
     user: RegisterUser = new RegisterUser();
 
     constructor(
+        private authService: AuthService,
         private usersActions: UsersActions,
         private ngRedux: NgRedux<IAppState>,
         private router: Router
     ){ }
 
-    register(){
+    register(){   
+        if(!this.authService.hasAdmin()){
+            this.authService.setAdmin(this.user.name);
+            this.authService.saveAdminSession();
+            this.user.isAdmin = true;
+        }else{
+            this.user.isAdmin = false;
+        }
+
         this.usersActions.register(this.user);
+       
         this.ngRedux
          .select(state => state.users.userRegistered)
-         .subscribe(userRegistered => {
+         .subscribe(userRegistered => {          
              if(userRegistered){
                 this.router.navigateByUrl('users/login')
              }

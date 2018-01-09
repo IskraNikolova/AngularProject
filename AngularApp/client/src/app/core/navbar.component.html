@@ -12,4 +12,7 @@
         <a routerLink="/users/register">Register</a>
         <a routerLink="/users/login">Login</a>
     </span>
+    <span *ngIf="isAdmin">
+        <a>Hello Admin###</a>
+    </span>
 </div>

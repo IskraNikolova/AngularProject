@@ -30,6 +30,10 @@ export class LoginComponent{
         .select(state => state.users)
         .subscribe(user => {
             if(user.userAuthenticated){
+                if(user.username == "admin"){ //todo
+                    this.authService.saveAdminSession();
+                }
+
                 this.authService.authenticateUser(user.token);
                 this.authService.saveUser(user.username);
                 this.router.navigateByUrl('')

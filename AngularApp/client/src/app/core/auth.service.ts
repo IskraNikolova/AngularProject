@@ -14,7 +14,31 @@ export class AuthService{
     }
 
     authenticateUser(token){
-        window.localStorage.setItem('token', token)
+        window.localStorage.setItem('token', token);
+    }
+
+    hasAdmin(){
+        return window.localStorage.getItem('admin') !== null;
+    }
+
+    setAdmin(key){
+        window.localStorage.setItem('admin', key);
+    }
+
+    getAdminKey(){
+        return window.localStorage.getItem("admin");
+    }
+
+    saveAdminSession() {
+        window.sessionStorage.setItem('admin', "true");
+    }
+
+    isAdmin(){
+        return window.sessionStorage.getItem('admin') !== null;
+    }
+
+    clearAdminSession(){
+        window.sessionStorage.clear();
     }
 
     isAuthenticated(){

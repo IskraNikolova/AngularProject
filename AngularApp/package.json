@@ -9,7 +9,7 @@
   "keywords": [
     "prodavalnik"
   ],
-  "author": "Iskra Nikolova",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.17.2",

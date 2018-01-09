@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, state } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgRedux } from 'ng2-redux';
@@ -14,6 +14,7 @@ import { UsersActions } from './../store/users/users.actions';
 
 export class NavbarComponent implements OnInit{
     authenticated: boolean = false;
+    isAdmin: boolean = false;
     username: string = null;
 
     constructor(
@@ -28,14 +29,15 @@ export class NavbarComponent implements OnInit{
         .subscribe(users => {
             this.authenticated = users.userAuthenticated;
             this.username = users.username;
-        })
+            this.isAdmin = users.isAdmin;          
+        });
     }
 
     logout(){
         this.usersActions.logout();
         this.authService.deauthenticateUser();
         this.authService.removeUser();
-
+        this.authService.clearAdminSession();
         this.router.navigateByUrl('');
     }
  }

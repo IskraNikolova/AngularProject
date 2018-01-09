@@ -7,14 +7,17 @@ import {
    } from './users.actions';
 
 export function userRegistration(state, action){
+    const isAdmin = action.user.isAdmin;
     const result = action.result;
-    return Object.assign({}, state, {
-        userRegistered: result.success
+    return Object.assign({}, state, {      
+        userRegistered: result.success,
+        isAdmin: isAdmin
     });
 }
 
 export function userLogin(state, action){
     const result = action.result;
+    const isAdmin = state.isAdmin;
     return Object.assign({}, state, {
         userAuthenticated: result.success,
         token: result.token,
@@ -25,6 +28,7 @@ export function userLogin(state, action){
 export function userLogout(state, action){
     return Object.assign({}, state, {
         userAuthenticated: false,
+        isAdmin: false,
         token: null,
         username: null
     });
