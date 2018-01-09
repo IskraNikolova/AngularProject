@@ -1,1 +1,9 @@
-<h1>Admin Page</h1>
+<h2>Active users - {{users.length}}</h2>
+<div *ngFor="let user of users">
+    <div>
+        <div>{{user.name}} - {{user.email}}
+            <button (click)="deleteUser()" class="btn btn-danger">Delete User</button>
+        </div>
+        <br>
+    </div>
+</div>

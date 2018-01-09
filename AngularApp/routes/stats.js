@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/admin/users/all', (req, res) => {
+router.get('/users/all', (req, res) => {
   const users = usersData.all()
 
   res.status(200).json(users)
