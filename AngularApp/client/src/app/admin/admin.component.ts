@@ -22,13 +22,13 @@ export class AdminComponent implements OnInit{
     ){ }
 
     ngOnInit(){
-        this.adminAction
-           .allUsers();
-    this.ngRedux
-        .select(state => state.admin.allUsers)
-        .subscribe(users => {       
-            this.users = Object.values(users)
-        });
+        this.adminAction.allUsers();
+        
+        this.ngRedux
+            .select(state => state.admin.allUsers)
+            .subscribe(users => {       
+                this.users = Object.values(users)
+            });
     }
 
     delete (id) {

@@ -36,8 +36,8 @@ function getEditProduct (state, action){
 
 function postEditProduct (state, action){
     const result = action.result;
-    console.log(result)
-    if(result.success) {       
+    if(result.success) {     
+        console.log(result);      
         return Object.assign({}, state, {
             editProduct: result.product
         });

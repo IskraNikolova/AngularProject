@@ -33,7 +33,6 @@ export class LoginComponent{
                 if(user.isAdmin){ 
                     this.authService.saveAdminSession();
                 }
-
                 this.authService.authenticateUser(user.token);
                 this.authService.saveUser(user.username);
                 this.router.navigateByUrl('')

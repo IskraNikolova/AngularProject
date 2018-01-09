@@ -26,14 +26,6 @@ export class RegisterComponent{
     ){ }
 
     register(){   
-        if(!this.authService.hasAdmin()){
-            this.authService.setAdmin(this.user.name);
-            this.authService.saveAdminSession();
-            this.user.isAdmin = true;
-        }else{
-            this.user.isAdmin = false;
-        }
-
         this.usersActions.register(this.user);
        
         this.ngRedux

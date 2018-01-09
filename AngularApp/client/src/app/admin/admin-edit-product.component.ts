@@ -32,7 +32,7 @@ export class AdminEditProductComponent implements OnInit{
                 this.ngRedux
                     .select(state => state.admin)
                     .subscribe(product => {
-                        this.product = product.editProduct;                       
+                        this.product = product.editProduct;                      
                     });
             });
     }
