@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 //Components
 import { NavbarComponent } from './navbar.component';
 import { MessageHandlerComponent } from './message.handler.component';
+import { FooterComponent } from './footer.component';
 
 //Services
 import { HttpService } from './http.service';
@@ -18,8 +19,9 @@ import { PrivateRoute } from './private-route';
         RouterModule
     ],
     declarations: [
+        FooterComponent,
         NavbarComponent,
-        MessageHandlerComponent
+        MessageHandlerComponent,
     ],
     providers: [
         HttpService,

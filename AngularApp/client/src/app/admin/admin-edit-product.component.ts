@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { NgRedux } from 'ng2-redux';
 import { IAppState } from './../store/app.state';
 
-
 import { EditProduct } from './edit-product.model';
 import { AdminActions } from '../store/admin/admin.actions';
 import { ActivatedRoute } from '@angular/router';

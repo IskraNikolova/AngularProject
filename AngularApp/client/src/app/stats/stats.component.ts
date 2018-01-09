@@ -8,7 +8,8 @@ import { StatsModel } from './stats.model';
 
 @Component({
     selector: 'stats',
-    templateUrl: './stats.component.html'
+    templateUrl: './stats.component.html',
+    styleUrls: ['./stats.component.css']
 })
 
 export class StatsComponent implements OnInit{

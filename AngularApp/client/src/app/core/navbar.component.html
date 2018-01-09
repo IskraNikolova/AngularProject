@@ -1,19 +1,17 @@
-<div>
-    <span>
-        <a routerLink="/">Home</a>
-        <a routerLink="/products/all">All Products</a>
-    </span>
-    <span *ngIf="authenticated">
-      <a routerLink="/products/add">Add Product</a>      
-      <a routerLink="/users/profile">{{username}}</a>
-      <a href="javascript:void(0)" (click)="logout()">Logout</a>     
-    </span>
-    <span *ngIf="!authenticated">
-        <a routerLink="/users/register">Register</a>
-        <a routerLink="/users/login">Login</a>
-    </span>
-    <span *ngIf="isAdmin">
-        here
-        <a routerLink="/users/all">Administrate</a>
-    </span>
-</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img class="navbar-brand" alt="Brand" src="https://exitpromise.com/wp-content/uploads/2013/02/Buy-Sell-Agreement.jpg">
+        </div>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+            <li role="presentation"><a routerLink="/products/all">All Products</a></li>
+            <li *ngIf="authenticated" role="presentation"><a routerLink="/products/add">Add Product</a></li>    
+            <li *ngIf="authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/profile">{{username}}</a></li>
+            <li *ngIf="authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a href="javascript:void(0)" (click)="logout()">Logout</a></li>    
+            <li *ngIf="!authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/register">Register</a></li>
+            <li *ngIf="!authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/login">Login</a></li>
+            <li *ngIf="isAdmin" role="presentation"><a routerLink="/users/all">Administrate</a></li>
+        </ul>
+    </div>
+</nav>
