@@ -35,26 +35,28 @@ function getEditProduct (state, action){
 }
 
 function postEditProduct (state, action){
-    console.log(action)
+    const result = action.result;
+    console.log(result)
+    if(result.success) {       
+        return Object.assign({}, state, {
+            editProduct: result.product
+        });
+    }
+
     return state;
 }
 
 export function adminReducer(state = initialState, action){
-    if(action.type === USERS_ALL){
-        return allUsers(state, action);
+    switch(action.type){
+        case USERS_ALL:
+            return allUsers(state, action); 
+        case USERS_DELETE:
+            return deleteUser(state, action);
+        case EDIT_PRODUCT:
+            return getEditProduct(state, action);
+        case POST_EDIT_PRODUCT:
+            return postEditProduct(state, action);
+        default:
+            return state;
     }
-
-    if(action.type === USERS_DELETE){
-        return deleteUser(state, action);
-    }
-
-    if(action.type === EDIT_PRODUCT){
-        return getEditProduct(state, action);
-    }
-
-    if(action.type === POST_EDIT_PRODUCT){
-        return postEditProduct(state, action);
-    }
-
-    return state;
 }

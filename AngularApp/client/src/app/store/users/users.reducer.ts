@@ -35,7 +35,7 @@ export function userLogout(state, action){
     });
 }
 
-export function usersReducer(state=initialState, action){
+export function usersReducer(state = initialState, action){
     switch(action.type){
         case USER_REGISTERED:
            return userRegistration(state, action);
