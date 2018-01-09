@@ -7,7 +7,7 @@
             <li role="presentation" class="active"><a routerLink="/">Home</a></li>
             <li role="presentation"><a routerLink="/products/all">All Products</a></li>
             <li *ngIf="authenticated" role="presentation"><a routerLink="/products/add">Add Product</a></li>    
-            <li *ngIf="authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/profile">{{username}}</a></li>
+            <li *ngIf="authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/profile">Hello, {{username}}</a></li>
             <li *ngIf="authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a href="javascript:void(0)" (click)="logout()">Logout</a></li>    
             <li *ngIf="!authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/register">Register</a></li>
             <li *ngIf="!authenticated" role="presentation" class="nav navbar-nav navbar-right" ><a routerLink="/users/login">Login</a></li>
