@@ -1,9 +1,15 @@
-<h2>Active users - {{users.length}}</h2>
-<div *ngFor="let user of users">
-    <div>
-        <div>{{user.name}} - {{user.email}}
-            <button (click)="delete(user.id)" class="btn btn-danger">Delete User</button>
+<div class="row">
+    <div class="col-md-4 well">
+        <h2>Active users - {{users.length}}</h2>
+        <div *ngFor="let user of users">
+            <div>
+                <div>
+                    <p><b>Name:</b> {{user.name}}</p>
+                    <p><b>E-mail:</b> {{user.email}}</p>
+                    <button (click)="delete(user.id)" class="btn btn-danger">Delete User</button>
+                </div>
+                <hr>
+            </div>
         </div>
-        <br>
     </div>
 </div>

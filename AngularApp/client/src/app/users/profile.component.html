@@ -1,15 +1,26 @@
 <h1>Profile Page</h1>
-<div *ngFor="let product of products">
-   <p><b>Product Name: </b> {{product.name}}</p>
-   <img [src]="product.image" alt="no image" width="300px"/>
-   <p><b>Product Description: </b>{{product.description}}</p>
-   <p><b>Product Price: </b>{{product.price}}</p>
-   <p><b>Product Likes: </b>{{product.likes.length}}</p>
-   <h2>Reviews</h2>
-   <div *ngFor="let review of product.reviews">
-       {{review.comment}} - {{review.rating}}
-       <p>Created On {{review.createdOn.slice(0, 10)}} by {{review.user}}</p>
-   </div>
-   <button (click)="delete(product.id)" class="btn btn-danger">Delete</button>
-   <hr>
+
+<div *ngFor="let product of products" class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          
+            <img [src]="product.image" alt="no image"/>
+            <div class="caption">
+                <h3>{{product.name}}</h3>
+                <p>{{product.description}}</p>
+                <p><b>Product Price: </b>{{product.price}}</p>
+                <p><b>Product Likes: </b>{{product.likes.length}}</p>
+                <p>
+                    <button (click)="delete(product.id)" class="btn btn-danger">Delete</button>
+                </p>
+                <h2>Reviews</h2>
+                <div *ngFor="let review of product.reviews">                   
+                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true">{{review.rating}}</span>
+                    {{review.comment}}
+                    <p><i>Created On {{review.createdOn.slice(0, 10)}}</i></p>
+                    <p>by {{review.user}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

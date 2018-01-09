@@ -1,69 +1,73 @@
-<h1>Add Product</h1>
-<form #addProductForm="ngForm" (submit)="addProduct()">
-    <div class="form-group">
-      <label for="name">Product Name</label>
-      <input 
-        type="text" 
-        class="form-control" 
-        id="name" 
-        name="name"
-        [(ngModel)]= "product.name"
-        placeholder="Product name..."
-        #name = "ngModel"
-        required />
-        <span [hidden] = "name.valid || name.pristine">
-            Product name is required!
-        </span>
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input 
-        type="text" 
-        class="form-control" 
-        id="description"
-        name="description"
-        [(ngModel)]= "product.description"
-        placeholder="Description..."
-        #description = "ngModel"
-        required />
-        <span [hidden] = "description.valid || description.pristine">
-                Description is required!
-        </span>
-    </div>
-    <div class="form-group">
-            <label for="price">Price</label>
+<div class="row">
+    <div class="col-md-4 well">
+      <h1>Add Product</h1>
+      <form #addProductForm="ngForm" (submit)="addProduct()">
+          <div class="form-group">
+            <label for="name">Product Name</label>
             <input 
               type="text" 
               class="form-control" 
-              id="price"
-              name="price"
-              [(ngModel)]= "product.price"
-              placeholder="Price..."
-              #price = "ngModel"
+              id="name" 
+              name="name"
+              [(ngModel)]= "product.name"
+              placeholder="Product name..."
+              #name = "ngModel"
               required />
-              <span [hidden] = "price.valid || price.pristine">
-                    Price is required!
+              <span [hidden] = "name.valid || name.pristine">
+                  Product name is required!
               </span>
           </div>
           <div class="form-group">
-                <label for="image">Image Url</label>
-                <input 
-                  type="url" 
-                  class="form-control" 
-                  id="image"
-                  name="image"
-                  [(ngModel)]= "product.image"
-                  placeholder="Image url..."
-                  #image = "ngModel"
-                  required />
-                  <span [hidden] = "image.valid || image.pristine">
-                        Image is required!
-                  </span>
-           </div>
-    <button 
-        type="submit" 
-        class="btn btn-primary"
-        [disabled]="!addProductForm.form.valid">
-        Submit
-   </button>
-  </form>
+            <label for="description">Description</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              id="description"
+              name="description"
+              [(ngModel)]= "product.description"
+              placeholder="Description..."
+              #description = "ngModel"
+              required />
+              <span [hidden] = "description.valid || description.pristine">
+                      Description is required!
+              </span>
+          </div>
+          <div class="form-group">
+                  <label for="price">Price</label>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    id="price"
+                    name="price"
+                    [(ngModel)]= "product.price"
+                    placeholder="Price..."
+                    #price = "ngModel"
+                    required />
+                    <span [hidden] = "price.valid || price.pristine">
+                          Price is required!
+                    </span>
+                </div>
+                <div class="form-group">
+                      <label for="image">Image Url</label>
+                      <input 
+                        type="url" 
+                        class="form-control" 
+                        id="image"
+                        name="image"
+                        [(ngModel)]= "product.image"
+                        placeholder="Image url..."
+                        #image = "ngModel"
+                        required />
+                        <span [hidden] = "image.valid || image.pristine">
+                              Image is required!
+                        </span>
+                </div>
+          <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="!addProductForm.form.valid">
+              Submit
+        </button>
+        </form>
+   </div>
+</div>
