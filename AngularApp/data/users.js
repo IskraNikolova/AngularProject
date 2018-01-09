@@ -10,6 +10,14 @@ module.exports = {
     usersById[id] = user
     usersByEmail[user.email] = user
   },
+  all: () => {
+    return Object
+      .keys(usersById)
+      .map(key => usersById[key])
+      .filter(usersById => {
+      })
+      .sort((a, b) => b.id - a.id)
+  },
   findByEmail: (email) => {
     return usersByEmail[email]
   },
