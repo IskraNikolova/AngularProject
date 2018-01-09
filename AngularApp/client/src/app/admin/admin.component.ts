@@ -26,9 +26,13 @@ export class AdminComponent implements OnInit{
            .allUsers();
     this.ngRedux
         .select(state => state.admin.allUsers)
-        .subscribe(users => {          
+        .subscribe(users => {       
             this.users = Object.values(users)
-            console.log(this.users)
         });
+    }
+
+    delete (id) {
+        this.adminAction.delete(id);
+        this.router.navigateByUrl('/users/all');
     }
 }

@@ -30,7 +30,7 @@ export class LoginComponent{
         .select(state => state.users)
         .subscribe(user => {
             if(user.userAuthenticated){
-                if(user.username == "admin"){ //todo
+                if(user.isAdmin){ 
                     this.authService.saveAdminSession();
                 }
 

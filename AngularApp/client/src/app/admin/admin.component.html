@@ -2,7 +2,7 @@
 <div *ngFor="let user of users">
     <div>
         <div>{{user.name}} - {{user.email}}
-            <button (click)="deleteUser()" class="btn btn-danger">Delete User</button>
+            <button (click)="delete(user.id)" class="btn btn-danger">Delete User</button>
         </div>
         <br>
     </div>

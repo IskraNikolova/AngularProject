@@ -5,6 +5,7 @@ import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../store';
 
 import  { ProductsAction } from './../store/products/products.action';
+import { AuthService } from './../core/auth.service';
 
 @Component({
     selector: 'list-products',
@@ -15,13 +16,17 @@ export class ListProductsComponent implements OnInit{
     page: number = 1;
     searchText: string = '';
     products: Array<object> = [];
+    isAdmin: boolean = false;
 
     constructor(
         private ngRedux: NgRedux<IAppState>,
         private route: ActivatedRoute,
         private router: Router,
-        private productsAction: ProductsAction
-    ){ }
+        private productsAction: ProductsAction,
+        private authService: AuthService
+    ){ 
+        this.isAdmin = this.authService.isAdmin();
+    }
 
     ngOnInit(){
         this.route
@@ -57,6 +62,12 @@ export class ListProductsComponent implements OnInit{
         }
         const url = this.getUrl(this.page + 1);
         this.router.navigateByUrl(url);
+    }
+
+    delete (id) {
+        console.log(id)
+        this.productsAction.delete(id);
+        this.router.navigateByUrl('/users/all');
     }
 
     private getUrl (page){

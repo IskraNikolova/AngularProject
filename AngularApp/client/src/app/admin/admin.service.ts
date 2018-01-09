@@ -9,4 +9,9 @@ export class AdminService{
         return this.httpService
             .get('stats/users/all');
     }
+
+    delete (id) {
+        return this.httpService
+            .post(`stats/users/delete/${id}`, {}, true)
+    }
 }

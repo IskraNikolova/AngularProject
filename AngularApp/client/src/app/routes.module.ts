@@ -20,6 +20,7 @@ const routes: Routes = [
     {path: 'users/login', component: LoginComponent},
     {path: 'users/profile', component: ProfileComponent},
     {path: 'users/all', component: AdminComponent, canActivate: [AdminRoute]},
+    {path: 'users/delete/:id', component: AdminComponent, canActivate: [AdminRoute]},
     {path: 'products/add', component: AddProductComponent, canActivate: [PrivateRoute]},
     {path: 'products/all', component: ListProductsComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent}

@@ -18,5 +18,12 @@ module.exports = {
   },
   findById: (id) => {
     return usersById[id]
+  },
+  delete: (id) => {
+	let user = usersById[id];
+	let email = user.email;
+	
+    delete usersById[id]
+	delete usersByEmail[email]
   }
 }
