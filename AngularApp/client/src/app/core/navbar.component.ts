@@ -24,13 +24,15 @@ export class NavbarComponent implements OnInit{
         private usersActions: UsersActions
     ){ }
 
-    ngOnInit(){
+    ngOnInit(){      
         this.ngRedux.select(state => state.users)
         .subscribe(users => {
+            console.log(users)
             this.authenticated = users.userAuthenticated;
             this.username = users.username;
             this.isAdmin = users.isAdmin;          
         });
+        this.isAdmin = this.authService.isAdmin();
     }
 
     logout(){
