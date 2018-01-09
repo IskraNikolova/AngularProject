@@ -11,6 +11,7 @@
         <p>{{product.name}}</p>
         <img [src]="product.image" alt="no image" width="300px"/>
         <button [hidden]="!isAdmin" (click)="delete(product.id)" class="btn btn-danger">Delete</button>
+        <button [hidden]="!isAdmin" routerLink="/products/edit/{{product.id}}" class="btn btn-danger">Edit</button>
         <p><a routerLink="/products/details/{{product.id}}">See More</a></p>
         <hr>       
     </div>

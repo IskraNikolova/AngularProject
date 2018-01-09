@@ -12,6 +12,16 @@ export class AdminService{
 
     delete (id) {
         return this.httpService
-            .post(`stats/users/delete/${id}`, {}, true)
+            .post(`stats/users/delete/${id}`, {}, true);
+    }
+
+    edit (id) {
+        return this.httpService
+            .get(`products/edit/${id}`);
+    }
+
+    postEdit (product) {
+        return this.httpService
+              .post(`products/edit/${product.id}`, product, true);
     }
 }

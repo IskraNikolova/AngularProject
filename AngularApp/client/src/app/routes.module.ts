@@ -13,6 +13,7 @@ import { ProfileComponent } from './users/profile.component';
 import { AddProductComponent } from './products/add-product.component';
 import { ListProductsComponent } from './products/list-products.component';
 import { ProductDetailsComponent } from './products/product-details.component';
+import { AdminEditProductComponent } from './admin/admin-edit-product.component';
 
 const routes: Routes = [
     {path: '', component: StatsComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path: 'users/delete/:id', component: AdminComponent, canActivate: [AdminRoute]},
     {path: 'products/add', component: AddProductComponent, canActivate: [PrivateRoute]},
     {path: 'products/all', component: ListProductsComponent},
-    {path: 'products/details/:id', component: ProductDetailsComponent}
+    {path: 'products/details/:id', component: ProductDetailsComponent},
+    {path: 'products/edit/:id', component: AdminEditProductComponent, canActivate: [AdminRoute]}
 ];
 
 @NgModule({

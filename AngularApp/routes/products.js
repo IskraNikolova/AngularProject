@@ -213,4 +213,43 @@ router.post('/delete/:id', authCheck, (req, res) => {
   })
 })
 
+router.get('/edit/:id', (req, res) => {
+  let id = req.params.id;
+
+  const product = productsData.findById(id)
+
+  res.status(200).json(product)
+})
+
+router.post('/edit/:id', (req, res) => {
+  const id = req.params.id
+  const product = req.body
+  console.log(product)
+   let name = product.name;
+   let description = product.description;
+   let price = product.price;
+   let image = product.image;
+   let createdOn = product.createdOn;
+   let likes = product.likes;
+
+  const validationResult = validateProductForm(product)
+  if (!validationResult.success) {
+    return res.status(200).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors
+    })
+  }
+  
+  productsData.delete(id)
+  productsData.save(product)
+
+  res.status(200).json({
+    success: true,
+    message: 'Product editted successfuly.',
+    product
+  })
+})
+
+
 module.exports = router
