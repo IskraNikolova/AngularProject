@@ -27,9 +27,7 @@ export class ListProductsComponent implements OnInit{
         private productsAction: ProductsAction,
         private adminAction: AdminActions,
         private authService: AuthService
-    ){ 
-        this.isAdmin = this.authService.isAdmin();
-    }
+    ){ }
 
     ngOnInit(){
         this.route
@@ -41,9 +39,12 @@ export class ListProductsComponent implements OnInit{
                 this.productsAction
                     .allProducts(this.page, this.searchText);
                 this.ngRedux
-                    .select(state => state.products.allProducts)
-                    .subscribe(products => this.products = products);
-            })
+                    .select(state => state)
+                    .subscribe(state => {
+                        this.products = state.products.allProducts;
+                        this.isAdmin = state.users.isAdmin;
+                    });
+            });
     }
 
     search (){
