@@ -11,7 +11,6 @@ import { HttpService } from './http.service';
 import { AuthService} from './../core/auth.service';
 
 import { PrivateRoute } from './private-route';
-import { AdminRoute } from './admin-route';
 
 @NgModule({
     imports: [
@@ -25,8 +24,7 @@ import { AdminRoute } from './admin-route';
     providers: [
         HttpService,
         AuthService,
-        PrivateRoute,
-        AdminRoute
+        PrivateRoute
     ],
     exports: [
         NavbarComponent,

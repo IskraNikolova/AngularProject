@@ -16,12 +16,13 @@ export function userRegistration(state, action){
 }
 
 export function userLogin(state, action){
+    const isAdmin = action.result.user.isAdmin;
     const result = action.result;
-    const isAdmin = state.isAdmin;
     return Object.assign({}, state, {
         userAuthenticated: result.success,
         token: result.token,
-        username: result.user ? result.user.name : null
+        username: result.user ? result.user.name : null,
+        isAdmin: isAdmin
     })
 }
 

@@ -6,8 +6,7 @@ import { CanActivate,
          Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
-
-import { AuthService } from './auth.service';
+import { AuthService } from '../core/auth.service';
 
 @Injectable()
 export class AdminRoute implements CanActivate{

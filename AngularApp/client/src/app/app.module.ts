@@ -10,6 +10,7 @@ import { store, IAppState } from './store';
 //Modules
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
+import { AdminModule } from './admin/admin.module';
 import { ProductsModule } from './products/products.module';
 import { StatsModule } from './stats/stats.module';
 import { ProductRoutesModule } from './routes.module';
@@ -30,6 +31,7 @@ import {config}  from './core/config';
     BrowserModule,
     HttpModule,
     NgReduxModule,
+    AdminModule,
     ProductRoutesModule,  
     CoreModule,  
     UsersModule,

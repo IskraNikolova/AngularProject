@@ -1,5 +1,6 @@
 const PassportLocalStrategy = require('passport-local').Strategy
 const usersData = require('../data/users')
+let index = null;
 
 module.exports = new PassportLocalStrategy({
   usernameField: 'email',
@@ -7,11 +8,18 @@ module.exports = new PassportLocalStrategy({
   session: false,
   passReqToCallback: true
 }, (req, email, password, done) => {
-  const user = {
+	
+	let isAdmin = false;
+	if(!index){
+		isAdmin = true;
+		index = "admin";
+	}
+
+    const user = {
     email: email.trim(),
     password: password.trim(),
     name: req.body.name.trim(),
-	isAdmin: req.body.isAdmin
+	isAdmin
   }
 
   const existingUser = usersData.findByEmail(email)
