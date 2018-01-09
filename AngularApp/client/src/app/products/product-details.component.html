@@ -1,43 +1,54 @@
-<div class="container">
-    <h1>{{product.name}} - {{product.likes}} Likes</h1>
-    <img *ngIf="product.image" [src]="product.image" alt="no image" width="300px"/>
-    <button (click)="like()">Like this product!</button>
-    <div>
-        <form #reviewForm="ngForm" (submit)="submitReview()">
-            <div class="form-group">
-                <label for="rating">Rating</label>
-                <select
-                    class="form-control" 
-                    id="rating"
-                    name="rating"
-                    [(ngModel)]= "review.rating">
-                    <option *ngFor="let number of [1, 2, 3, 4, 5]"[value]="number">
-                        {{number}}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comment">Comment</label>
-                <textarea
-                    class="form-control" 
-                    id="comment" 
-                    name="comment"
-                    [(ngModel)]= "review.comment"
-                    placeholder="Comment...">
-                </textarea>
-            </div>          
-            <button 
-                type="submit" 
-                class="btn btn-primary"
-                [disabled]="!reviewForm.form.valid">
-                Submit
-        </button>
-        </form>
-        <div>
-            <div *ngFor="let review of reviews">               
-                <span *ngIf="review.comment">{{review.comment}}</span>
-                <p>Rating: {{review.rating}} - by {{review.user}}</p>
-            </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">{{product.name}}s</h1>
+        <img *ngIf="product.image" [src]="product.image" alt="no image" width="300px"/>
+        <p><button type="button" class="btn btn-primary" aria-label="Left Align" (click)="like()">
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+            {{product.likes}}
+        </button></p>
+    </div>
+    <div class="panel-body">
+        {{product.description}}
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="row panel-body">  
+        <div class="col-md-4">
+            <form #reviewForm="ngForm" (submit)="submitReview()">
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select
+                        class="form-control" 
+                        id="rating"
+                        name="rating"
+                        [(ngModel)]= "review.rating">
+                        <option *ngFor="let number of [1, 2, 3, 4, 5]"[value]="number">
+                            {{number}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea
+                        class="form-control" 
+                        id="comment" 
+                        name="comment"
+                        [(ngModel)]= "review.comment"
+                        placeholder="Comment...">
+                    </textarea>
+                </div>          
+                <button 
+                    type="submit" 
+                    class="btn btn-primary"
+                    [disabled]="!reviewForm.form.valid">
+                    Submit
+                </button>
+            </form>
         </div>
+        <div class="col-md-8 panel-body" *ngFor="let review of reviews">
+            <p>Rating: {{review.rating}} - by {{review.user}}</p>
+            <div class="panel-body" *ngIf="review.comment">{{review.comment}}</div>
+        </div>
+        <hr>
     </div>
 </div>

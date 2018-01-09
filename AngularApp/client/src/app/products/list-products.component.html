@@ -1,19 +1,31 @@
-<div class="container">
-    <div>
-        <input type="text" [(ngModel)]="searchText" name="searchText" />
-        <button (click)="search()">Search</button>
+<div class="panel">
+    <div class="row">
+    <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="searchText" name="searchText" class="form-control" placeholder="Search"/>
+            </div>
+            <button class="btn btn-default" (click)="search()">Search</button>
+    </form>
     </div>
     <div *ngIf="products.length === 0">
         No more products available!
     </div>
-    <div *ngFor="let product of products">
-        <p>{{product.name}}</p>
-        <img [src]="product.image" alt="no image" width="300px"/>
-        <button [hidden]="!isAdmin" (click)="delete(product.id)" class="btn btn-danger">Delete</button>
-        <button [hidden]="!isAdmin" routerLink="/products/edit/{{product.id}}" class="btn btn-danger">Edit</button>
-        <p><a routerLink="/products/details/{{product.id}}">See More</a></p>
-        <hr>       
+
+    <div class="row">
+            <div class="col-sm-6 col-md-4" *ngFor="let product of products">
+              <div class="thumbnail">
+                <img [src]="product.image" alt="no image" width="300px"/>
+                <div class="caption">
+                  <h3>{{product.name}}</h3>
+                  <p><a routerLink="/products/details/{{product.id}}">See More</a></p>
+                  <p>
+                      <button [hidden]="!isAdmin" (click)="delete(product.id)" class="btn btn-danger">Delete</button>
+                      <button [hidden]="!isAdmin" routerLink="/products/edit/{{product.id}}" class="btn btn-danger">Edit</button>
+                   </p>
+                </div>
+              </div>
+        </div>
     </div>
-    <button class="btn btn-default" [disabled]="page === 1" (click)="prevPage()">Prev</button>
-    <button class="btn btn-default" [disabled]="products.length === 0" (click)="nextPage()">Next</button>
+          <button class="btn btn-default" [disabled]="page === 1" (click)="prevPage()">Prev</button>
+          <button class="btn btn-default" [disabled]="products.length === 0" (click)="nextPage()">Next</button>
 </div>
