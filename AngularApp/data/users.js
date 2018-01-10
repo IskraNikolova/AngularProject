@@ -1,5 +1,5 @@
-const usersById = {}
-const usersByEmail = {}
+const usersById =    { '1': { email: 'pesho@abv.bg', password: 'pppp', name: 'pesho', id: 1, isAdmin: false } };
+const usersByEmail = { 'pesho@abv.bg': { email: 'pesho@abv.bg', password: 'pppp', name: 'pesho', id: 1, isAdmin:false } };
 
 module.exports = {
   total: () => Object.keys(usersById).length,
