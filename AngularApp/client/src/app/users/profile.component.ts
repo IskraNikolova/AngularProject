@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit{
         this.productsAction.mine();
         this.ngRedux
             .select(state => state.products.myProducts)
-            .subscribe(products => {
+            .subscribe(products  => {
                 this.products = products;
             })
     }
