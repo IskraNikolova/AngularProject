@@ -34,6 +34,4 @@ import { PrivateRoute } from './private-route';
     ]
 })
 
-export class CoreModule{
-
-}
+export class CoreModule{ }

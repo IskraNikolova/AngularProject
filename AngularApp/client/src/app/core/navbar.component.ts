@@ -32,8 +32,6 @@ export class NavbarComponent implements OnInit{
             this.username = users.username;
             this.isAdmin = users.isAdmin;          
         });
-
-        //this.isAdmin = this.authService.isAdmin();
     }
 
     logout(){

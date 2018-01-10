@@ -23,7 +23,7 @@ export function userLogin(state, action){
         token: result.token,
         username: result.user ? result.user.name : null,
         isAdmin: isAdmin
-    })
+    });
 }
 
 export function userLogout(state, action){
